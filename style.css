@@ -358,7 +358,26 @@ body {
 
 .about-gallery {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-gallery img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.img-big {
+  height: 590px;
+}
+
+.img-small {
+  height: 430px;
 }
