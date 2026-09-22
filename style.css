@@ -381,3 +381,213 @@ body {
 .img-small {
   height: 430px;
 }
+
+.mobile-app {
+  padding: 100px 40px;
+}
+
+.mobile-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.download-content {
+  display: grid;
+  gap: 40px;
+}
+
+.download {
+  color: #403f3d;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.download span {
+  color: #b0907a;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-family: Inter;
+  font-size: 60px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.download-description {
+  color: #403f3d;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  gap: 40px;
+}
+
+.mobile-screen {
+  width: 100%;
+  max-width: 630px;
+  height: auto;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 200px;
+  height: 64px;
+
+  padding: 12px 20px;
+
+  border-radius: 100px;
+  border: 1px solid #665f55;
+
+  background: transparent;
+  cursor: pointer;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.store-text span {
+  color: #403f3d;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.store-text p {
+  color: #403f3d;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.store-btn img {
+  width: 36px;
+  height: 36px;
+}
+
+.Contacts {
+  padding: 100px 40px;
+}
+
+.container-contacts {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  border-radius: 40px;
+  background: #665f55;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1 0 0;
+}
+
+.offer h2 {
+  color: #e1d4c9;
+  font-family: Inter;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  margin: 0;
+  gap: 40px;
+}
+
+.offer h2 span {
+  color: #b0907a;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #e1d4c9;
+}
+
+.social-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 0 0;
+  padding-left: 100px;
+}
+
+.contact-title {
+  color: #e1d4c9;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+  gap: 40px;
+  margin: 0 0 40px 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-item p {
+  color: #e1d4c9;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
