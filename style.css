@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--Background-Page, #e1d4c9);
   -webkit-font-smoothing: antialiased;
@@ -98,10 +102,27 @@ body {
 }
 
 .menu-item {
+  position: relative; /* точка відліку для ::after */
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.menu-item:hover::after {
+  width: 100%;
 }
 
 .menu-text {
@@ -109,12 +130,13 @@ body {
   font-feature-settings:
     "liga" off,
     "clig" off;
-
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
+  margin: 0;
+  text-decoration: none;
 }
 
 .coffee-cup {
@@ -186,15 +208,45 @@ body {
 }
 
 .hero-menu-btn {
-  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100px;
+  padding: 16px 20px;
+
   background: #e1d4c9;
-  border: none;
   border-radius: 100px;
-  font-family: Inter;
+
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #403f3d;
-  cursor: pointer;
+  text-decoration: none;
+
+  transition: width 0.2s ease;
+}
+
+.hero-coffee-cup {
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+  width: 0;
+
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.hero-menu-btn:hover {
+  width: 132px;
+}
+
+.hero-menu-btn:hover .hero-coffee-cup {
+  width: 24px;
+  opacity: 1;
 }
 
 :root {

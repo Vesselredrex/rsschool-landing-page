@@ -35,7 +35,9 @@
           </div>
         </div>
         <div class="hero-content">
-            <img src="container-img.jpg" alt="hero background" class="container-img" />
+          <video class="container-img" autoplay muted loop playsinline>
+            <source src="coffee-media.mp4" type="video/mp4" />
+          </video>
             
             <div class="hero-text">
               <h1 class="hero-title">
@@ -46,7 +48,11 @@
                 House Resource is a popular destination for coffee lovers and those
                 seeking a warm and inviting space to enjoy their favorite beverage.
               </p>
-              <button class="hero-menu-btn">Menu</button>
+              <a class="hero-menu-btn" href="index-menu.html">
+                <span>Menu</span>
+                <img src="coffee-cup.svg" alt="" class="hero-coffee-cup">
+              </a>
+              
             </div>
           </div>
       </div>
@@ -145,7 +151,7 @@
     
     </section>
     </div>
-    <section class="Contacts">
+    <section id="contacts" class="Contacts">
       <div class="container-contacts">
         <div class="offer">
           <h2>Sip, Savor, Smile. <br><span>It's coffee time!</span></h2>
