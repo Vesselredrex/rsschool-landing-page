@@ -5,33 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffe House</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="burger.css" />
     <link rel="icon" type="image/svg+xml" href="logo.svg" />
   </head>
   <body>
     <div class="main-page">
       <div class="header">
-        <img src="logo.svg" alt="logo" class="logo" />
-        <nav class="nav">
+        <img src="logo.svg" alt="logo" class="logo logo-light">
+        <img src="logo_dark.svg" alt="logo" class="logo logo-dark">     
+        <nav class="nav" id="main-navigation" aria-label="Main navigation">
           <ul class="nav-list">
-            <li><a href="#favoriate">Favorite coffee</a></li>
+            <li><a href="#favorite">Favorite coffee</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#app">Mobile app</a></li>
             <li><a href="#contacts">Contact us</a></li>
+            <li class="mobile-menu-link"><a href="index-menu.html">Menu <img src="coffee-cup.svg" alt="" /></a></li>
           </ul>
         </nav>
         <div class="header-right">
-            <div class="theme-toggle">
-                <button class="theme-btn theme-btn--active">
-                  <img src="Sun.svg" alt="light theme" class="light-theme-img" />
-                </button>
-                <button class="theme-btn">
-                  <img src="Moon.svg" alt="dark theme" />
-                </button>
-              </div>
-               <div class="menu-item">
+          <div class="theme-toggle">
+            <button
+              type="button"
+              class="theme-btn light-btn theme-btn--active"
+            >
+              <img src="Sun.svg" alt="light theme">
+            </button>
+          
+            <button
+              type="button"
+              class="theme-btn dark-btn"
+            >
+              <img src="Moon.svg" alt="dark theme">
+            </button>
+          </div>
+               <a class="menu-item" href="index-menu.html">
                     <p class="menu-text">Menu</p>
                     <img src="coffee-cup.svg" alt="сoffee cup" class="coffee-cup" />
-               </div>
+               </a>
+              <button
+               class="burger"
+               type="button"
+               aria-label="Open menu"
+               aria-expanded="false"
+               aria-controls="main-navigation">
+               <span></span>
+               <span></span>
+             </button>
           </div>
         </div>
         <div class="hero-content">
@@ -56,38 +75,53 @@
             </div>
           </div>
       </div>
-      <section class="favorite-coffee">
+      <section id="favorite" class="favorite-coffee">
         <h2 class="favorite-title">
           Choose your <span>favorite</span> coffee
         </h2>
 
         <div class="coffee-slider">
-          <button class="slider-btn">
-            <img src="arrow-left.svg" alt="arrow-left">
-          </button>
 
+          <button class="slider-btn slider-prev" type="button">
+            <img src="arrow-left.svg" alt="Previous coffee">
+          </button>
+        
           <div class="coffee-card">
-            <img src="ice-coffee.png" alt="coffee-ice" class="coffee-ice">
-            <h3 class="h3">5'more Frapuccino</h3>
-            <p class="p1">
+        
+            <img
+              src="ice-coffee.png"
+              alt="S'mores Frappuccino"
+              class="coffee-slide-image"
+            >
+        
+            <h3 class="coffee-slide-title">
+              S'mores Frappuccino
+            </h3>
+        
+            <p class="coffee-slide-description">
               This new drink takes an espresso and mixes it with
               brown sugar and cinnamon before being topped with oat milk.
-           </p>
-           <div class="coffee-price">
-            $5.50
-           </div>
+            </p>
+        
+            <div class="coffee-slide-price">
+              $5.50
+            </div>
+        
+            <div class="pagination">
+              <span class="pagination-item active"></span>
+              <span class="pagination-item"></span>
+              <span class="pagination-item"></span>
+            </div>
+        
           </div>
-          <button class="slider-btn">
-            <img src="arrow-right.svg" alt="arrow-right">
+        
+          <button class="slider-btn slider-next" type="button">
+            <img src="arrow-right.svg" alt="Next coffee">
           </button>
-        </div>
-        <div class="pagination">
-          <span class="pagination-item active"></span>
-          <span class="pagination-item"></span>
-          <span class="pagination-item"></span>
+        
         </div>
       </section>
-    <section class="About">
+    <section id="about" class="About">
       <div class="about-text">
         <h2>
           Resource is <span>the perfect and cozy place</span> where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.
@@ -107,7 +141,7 @@
       </div>
     </section>
 
-    <section class="mobile-app">
+    <section id="app" class="mobile-app">
 
       <div class="mobile-content">
     
@@ -183,5 +217,8 @@
       </div>
       
     </section>
+    <script src="burger.js"></script>
+    <script src="./theme.js"></script>
+    <script src="./slider.js"></script>
   </body>
 </html>
