@@ -820,3 +820,19 @@ body.dark-theme .option-btn:focus-visible {
 .show-more-btn span {
   line-height: 1;
 }
+
+@media (max-width: 768px) {
+  .menu-grid {
+    max-width: 688px;
+    grid-template-columns: repeat(2, 310px);
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .menu-grid {
+    max-width: 310px;
+    grid-template-columns: 310px;
+  }
+}
