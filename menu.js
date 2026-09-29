@@ -143,6 +143,8 @@ const menuGrid = document.getElementById("menu-grid");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const showMoreBtn = document.getElementById("show-more-btn");
 
+const mobileMedia = window.matchMedia("(max-width: 768px)");
+
 let currentCategory = "coffee";
 let showAll = false;
 
@@ -156,12 +158,8 @@ function createCard(product) {
 
     <div class="card-content">
       <h3>${product.name}</h3>
-
       <p>${product.description}</p>
-
-      <span class="price">
-        $${product.price.toFixed(2)}
-      </span>
+      <span class="price">$${product.price.toFixed(2)}</span>
     </div>
   `;
 
@@ -173,7 +171,7 @@ function createCard(product) {
 }
 
 function getInitialCount() {
-  if (window.innerWidth <= 768) {
+  if (mobileMedia.matches) {
     return 4;
   }
 
@@ -186,13 +184,9 @@ function renderProducts() {
   const categoryProducts = products[currentCategory];
   const initialCount = getInitialCount();
 
-  let visibleProducts;
-
-  if (showAll) {
-    visibleProducts = categoryProducts;
-  } else {
-    visibleProducts = categoryProducts.slice(0, initialCount);
-  }
+  const visibleProducts = showAll
+    ? categoryProducts
+    : categoryProducts.slice(0, initialCount);
 
   visibleProducts.forEach((product) => {
     const card = createCard(product);
@@ -208,9 +202,11 @@ function renderProducts() {
   }
 }
 
+/* Coffee / Tea / Dessert */
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     currentCategory = button.dataset.category;
+
     showAll = false;
 
     filterButtons.forEach((item) => {
@@ -228,16 +224,9 @@ showMoreBtn.addEventListener("click", () => {
   renderProducts();
 });
 
-let previousMode = window.innerWidth <= 768 ? "mobile" : "desktop";
-
-window.addEventListener("resize", () => {
-  const currentMode = window.innerWidth <= 768 ? "mobile" : "desktop";
-
-  if (currentMode !== previousMode) {
-    previousMode = currentMode;
-    showAll = false;
-    renderProducts();
-  }
+mobileMedia.addEventListener("change", () => {
+  showAll = false;
+  renderProducts();
 });
 
 renderProducts();
