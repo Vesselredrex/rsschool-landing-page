@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="style-menu.css" />
+    <link rel="stylesheet" href="burger.css" />
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  </head>
+  <body>
+    <div class="main-page">
+      <div class="header">
+        <img src="logo.svg" alt="logo" class="logo logo-light" />
+        <img src="logo_dark.svg" alt="logo" class="logo logo-dark" />
+        <nav class="nav" id="main-navigation" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="index.html#favorite">Favorite coffee</a>
+            </li>
+
+            <li>
+              <a href="index.html#about">About</a>
+            </li>
+
+            <li>
+              <a href="index.html#app">Mobile app</a>
+            </li>
+
+            <li>
+              <a href="index.html#contacts">Contact us</a>
+            </li>
+
+            <li class="mobile-menu-link">
+              <a href="index-menu.html">
+                Menu
+                <img src="coffee-cup.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <div class="theme-toggle">
+            <button type="button" class="theme-btn light-btn theme-btn--active">
+              <img src="Sun.svg" alt="light theme" />
+            </button>
+
+            <button type="button" class="theme-btn dark-btn">
+              <img src="Moon.svg" alt="dark theme" />
+            </button>
+          </div>
+          <a class="menu-item" href="index-menu.html">
+            <p class="menu-text">Menu</p>
+            <img src="coffee-cup.svg" alt="сoffee cup" class="coffee-cup" />
+          </a>
+          <button
+            class="burger"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <section class="menu-page">
+        <h2>Behind each of our cups hides an <span>amazing surprise</span></h2>
+
+        <div class="filter-buttons">
+          <button class="filter-btn filter-btn--active" data-category="coffee">
+            <span class="filter-icon-wrap">☕</span>
+            Coffee
+          </button>
+
+          <button class="filter-btn" data-category="tea">
+            <span class="filter-icon-wrap">🍵</span>
+            Tea
+          </button>
+
+          <button class="filter-btn" data-category="dessert">
+            <span class="filter-icon-wrap">🍰</span>
+            Dessert
+          </button>
+        </div>
+      </section>
+      <div class="menu-grid" id="menu-grid"></div>
+      <button class="show-more-btn" id="show-more-btn" type="button">
+        <span>↻</span>
+      </button>
+      <section id="contacts" class="Contacts">
+        <div class="container-contacts">
+          <div class="offer">
+            <h2>Sip, Savor, Smile. <br /><span>It's coffee time!</span></h2>
+            <div class="socials">
+              <a href="#" class="social-icon"
+                ><img src="twitter.svg" alt="Twitter"
+              /></a>
+              <a href="#" class="social-icon"
+                ><img src="instagram.svg" alt="Instagram"
+              /></a>
+              <a href="#" class="social-icon"
+                ><img src="facebook.svg" alt="Facebook"
+              /></a>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <p class="contact-title">Contact us</p>
+
+            <div class="contact-item">
+              <img src="pin-alt.svg" alt="" />
+              <p>8558 Green Rd., LA</p>
+            </div>
+
+            <div class="contact-item">
+              <img src="phone.svg" alt="" />
+              <p>+1 (603) 555-0123</p>
+            </div>
+
+            <div class="contact-item">
+              <img src="clock.svg" alt="" />
+              <p>Mon–Sat: 9:00–23:00</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="burger.js"></script>
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-window" id="modal-window">
+        <div class="modal-image-block">
+          <img src="" alt="" class="modal-image" id="modal-image" />
+        </div>
+
+        <div class="modal-content">
+          <h3 class="modal-title" id="modal-title"></h3>
+          <p class="modal-description" id="modal-description"></p>
+
+          <div class="modal-section">
+            <p class="modal-label">Size</p>
+            <div class="modal-options" id="size-options">
+              <button
+                class="option-btn active"
+                data-type="size"
+                data-value="S"
+                data-price="0"
+              >
+                <span class="option-mark">S</span>
+                <span>200 ml</span>
+              </button>
+
+              <button
+                class="option-btn"
+                data-type="size"
+                data-value="M"
+                data-price="0.5"
+              >
+                <span class="option-mark">M</span>
+                <span>300 ml</span>
+              </button>
+
+              <button
+                class="option-btn"
+                data-type="size"
+                data-value="L"
+                data-price="1"
+              >
+                <span class="option-mark">L</span>
+                <span>400 ml</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <p class="modal-label">Additives</p>
+
+            <div class="modal-options" id="additives-options">
+              <button
+                class="option-btn"
+                data-type="additive"
+                data-value="1"
+                data-name="Sugar"
+                data-price="0.5"
+              >
+                <span class="option-mark">1</span>
+                <span>Sugar</span>
+              </button>
+
+              <button
+                class="option-btn"
+                data-type="additive"
+                data-value="2"
+                data-name="Cinnamon"
+                data-price="0.5"
+              >
+                <span class="option-mark">2</span>
+                <span>Cinnamon</span>
+              </button>
+
+              <button
+                class="option-btn"
+                data-type="additive"
+                data-value="3"
+                data-name="Syrup"
+                data-price="0.5"
+              >
+                <span class="option-mark">3</span>
+                <span>Syrup</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-total">
+            <span>Total:</span>
+            <span id="modal-price">$7.00</span>
+          </div>
+
+          <div class="modal-note">
+            <img src="info-empty.svg" alt="info" />
+            <p>
+              The cost is not final. Download our mobile app to see the final
+              price and place your order. Earn loyalty points and enjoy your
+              favorite coffee with up to 20% discount.
+            </p>
+          </div>
+
+          <button class="modal-close-btn" id="modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src="./modal.js"></script>
+    <script src="./menu.js"></script>
+    <script src="./theme.js"></script>
+  </body>
+</html>
