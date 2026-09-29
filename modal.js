@@ -1,5 +1,3 @@
-const modalMenuGrid = document.getElementById("menu-grid");
-
 const modalOverlay = document.getElementById("modal-overlay");
 const modalImage = document.getElementById("modal-image");
 const modalTitle = document.getElementById("modal-title");
@@ -35,19 +33,14 @@ function resetOptions() {
   sizeButtons[0].classList.add("active");
 }
 
-function openModal(card) {
-  const cardImage = card.querySelector("img");
-  const cardTitle = card.querySelector("h3");
-  const cardDescription = card.querySelector(".card-content p");
-  const cardPrice = card.querySelector(".price");
+function openModal(product) {
+  modalImage.src = product.image;
+  modalImage.alt = product.name;
 
-  modalImage.src = cardImage.src;
-  modalImage.alt = cardImage.alt;
+  modalTitle.textContent = product.name;
+  modalDescription.textContent = product.description;
 
-  modalTitle.textContent = cardTitle.textContent;
-  modalDescription.textContent = cardDescription.textContent;
-
-  basePrice = Number(cardPrice.textContent.replace("$", ""));
+  basePrice = product.price;
 
   resetOptions();
   updatePrice();
@@ -60,16 +53,6 @@ function closeModal() {
   modalOverlay.classList.remove("open");
   document.body.classList.remove("modal-open");
 }
-
-modalMenuGrid.addEventListener("click", (event) => {
-  const card = event.target.closest(".menu-card");
-
-  if (!card) {
-    return;
-  }
-
-  openModal(card);
-});
 
 sizeButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -87,13 +70,13 @@ sizeButtons.forEach((button) => {
 
 additiveButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    additiveButtons.forEach((item) => {
-      item.classList.remove("active");
-    });
+    button.classList.toggle("active");
 
-    button.classList.add("active");
-
-    additivePrice = Number(button.dataset.price);
+    additivePrice = Array.from(additiveButtons)
+      .filter((item) => item.classList.contains("active"))
+      .reduce((sum, item) => {
+        return sum + Number(item.dataset.price);
+      }, 0);
 
     updatePrice();
   });

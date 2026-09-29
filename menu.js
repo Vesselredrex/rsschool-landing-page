@@ -141,36 +141,77 @@ const products = {
 
 const menuGrid = document.getElementById("menu-grid");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const showMoreBtn = document.getElementById("show-more-btn");
 
-function renderProducts(category) {
+let currentCategory = "coffee";
+let showAll = false;
+
+function createCard(product) {
+  const card = document.createElement("article");
+
+  card.classList.add("menu-card");
+
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+
+    <div class="card-content">
+      <h3>${product.name}</h3>
+
+      <p>${product.description}</p>
+
+      <span class="price">
+        $${product.price.toFixed(2)}
+      </span>
+    </div>
+  `;
+
+  card.addEventListener("click", () => {
+    openModal(product);
+  });
+
+  return card;
+}
+
+function getInitialCount() {
+  if (window.innerWidth <= 768) {
+    return 4;
+  }
+
+  return 8;
+}
+
+function renderProducts() {
   menuGrid.innerHTML = "";
 
-  products[category].forEach((product) => {
-    const card = document.createElement("article");
+  const categoryProducts = products[currentCategory];
+  const initialCount = getInitialCount();
 
-    card.classList.add("menu-card");
+  let visibleProducts;
 
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
+  if (showAll) {
+    visibleProducts = categoryProducts;
+  } else {
+    visibleProducts = categoryProducts.slice(0, initialCount);
+  }
 
-      <div class="card-content">
-        <h3>${product.name}</h3>
-
-        <p>${product.description}</p>
-
-        <span class="price">
-          $${product.price.toFixed(2)}
-        </span>
-      </div>
-    `;
-
+  visibleProducts.forEach((product) => {
+    const card = createCard(product);
     menuGrid.append(card);
   });
+
+  const hasHiddenProducts = categoryProducts.length > initialCount && !showAll;
+
+  if (hasHiddenProducts) {
+    showMoreBtn.classList.add("visible");
+  } else {
+    showMoreBtn.classList.remove("visible");
+  }
 }
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const category = button.dataset.category;
+    currentCategory = button.dataset.category;
+    showAll = false;
 
     filterButtons.forEach((item) => {
       item.classList.remove("filter-btn--active");
@@ -178,6 +219,25 @@ filterButtons.forEach((button) => {
 
     button.classList.add("filter-btn--active");
 
-    renderProducts(category);
+    renderProducts();
   });
 });
+
+showMoreBtn.addEventListener("click", () => {
+  showAll = true;
+  renderProducts();
+});
+
+let previousMode = window.innerWidth <= 768 ? "mobile" : "desktop";
+
+window.addEventListener("resize", () => {
+  const currentMode = window.innerWidth <= 768 ? "mobile" : "desktop";
+
+  if (currentMode !== previousMode) {
+    previousMode = currentMode;
+    showAll = false;
+    renderProducts();
+  }
+});
+
+renderProducts();
